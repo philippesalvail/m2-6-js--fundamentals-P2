@@ -1,7 +1,7 @@
 // Exercise 2
 // -------------------
 
-const myKey = 'width';
+const myKey = "width";
 
 const geometry = {
   length: 20,
@@ -9,6 +9,8 @@ const geometry = {
   height: 10,
   weight: 100,
 };
+
+console.log("width: ", geometry[myKey]);
 
 // In Javascript objects, there are two ways to look up a value:
 // - Dot notation (geometry.length)

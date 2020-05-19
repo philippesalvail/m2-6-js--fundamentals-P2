@@ -7,31 +7,85 @@
  */
 
 let inputData = {
-  name: 'Will Byers',
+  name: "Will Byers",
   age: 9,
-  status: 'upside down',
-  superpower1: 'can-blink-lights',
+  status: "upside down",
+  superpower1: "can-blink-lights",
   superpower2: null,
-  address1: '123 Whatever street',
-  addressCity: 'Hawkins',
-  addressState: 'Indiana',
-  addressCountry: 'United States',
-  motherName: 'Joyce Byers',
+  address1: "123 Whatever street",
+  addressCity: "Hawkins",
+  addressState: "Indiana",
+  addressCountry: "United States",
+  motherName: "Joyce Byers",
   motherAge: 35,
-  motherStatus: 'worried',
+  motherStatus: "worried",
   motherSuperpower1: null,
-  motherSuperpower1: null,
-  bestFriendName: 'Mike Wheeler',
+  motherSuperpower2: null,
+  bestFriendName: "Mike Wheeler",
   bestFriendAge: 9,
-  bestFriendStatus: 'frenetic',
+  bestFriendStatus: "frenetic",
   bestFriendSuperpower1: null,
-  bestFriendSuperpower1: null,
-  girlfriendName: 'Eleven',
+  bestFriendSuperpower2: null,
+  girlfriendName: "Eleven",
   girlfriendAge: 9,
-  girlfriendStatus: 'angry',
-  girlfriendSuperpower1: 'telepathy',
-  girlfriendSuperpower1: 'multiverse portal sealing',
+  girlfriendStatus: "angry",
+  girlfriendSuperpower1: "telepathy",
+  girlfriendSuperpower2: "multiverse portal sealing",
 };
+
+function transformData(data) {
+  let transformData = {};
+  let individualAddress = {};
+  let individualSuperPowers = [];
+  let mother = {};
+  let bestFriend = {};
+  let girlFriend = {};
+  let motherSuperPowers = [];
+  let bestFriendSuperPowers = [];
+  let girlFriendSuperPowers = [];
+  let relationships = [];
+
+  transformData.name = data["name"];
+  transformData.age = data["age"];
+  transformData.status = data["status"];
+
+  individualAddress.streetAddress = data["address1"];
+  individualAddress.city = data["addressCity"];
+  individualAddress.state = data["addressState"];
+  individualAddress.country = data["addressCountry"];
+
+  transformData.address = individualAddress;
+
+  individualSuperPowers.push(data["superpower1"]);
+  transformData.superpowers = individualSuperPowers;
+
+  mother.type = "mother";
+  mother.name = data["motherName"];
+  mother.age = data["motherAge"];
+  mother.status = data["motherStatus"];
+  mother.superpowers = motherSuperPowers;
+
+  bestFriend.type = "bestfriend";
+  bestFriend.name = data["bestFriendName"];
+  bestFriend.age = data["bestFriendAge"];
+  bestFriend.status = data["bestFriendStatus"];
+  bestFriend.superpowers = bestFriendSuperPowers;
+
+  girlFriend.type = "girlfriend";
+  girlFriend.name = data["girlfriendName"];
+  girlFriend.age = data["girlfriendAge"];
+  girlFriend.status = data["girlfriendStatus"];
+  girlFriendSuperPowers.push(data["girlfriendSuperpower1"]);
+  girlFriendSuperPowers.push(data["girlfriendSuperpower2"]);
+  girlFriend.superpowers = girlFriendSuperPowers;
+
+  relationships.push(mother);
+  relationships.push(bestFriend);
+  relationships.push(girlFriend);
+
+  transformData.relationships = relationships;
+  return transformData;
+}
 
 /*
 
@@ -86,10 +140,6 @@ For example, the main superpowers array should be:
 ✅ ['can-blink-lights']
 ⛔️ ['can-blink-lights', null]
 */
-
-function transformData(data) {
-  // Your code here
-}
 
 /*
   `JSON.stringify` is used to "pretty-print" the output, so that it's easy

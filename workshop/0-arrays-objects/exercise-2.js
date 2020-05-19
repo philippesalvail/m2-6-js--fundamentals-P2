@@ -1,7 +1,15 @@
 // Exercise 2
 // -------------------
-const lateComers = ['Felicia', 'Charles', 'Terry'];
-const earlyBirds = ['Ellen', 'Jerry', 'Jasmine'];
+const lateComers = ["Felicia", "Charles", "Terry"];
+const earlyBirds = ["Ellen", "Jerry", "Jasmine"];
+
+function arrival(early, late) {
+  early = early.concat(late);
+  early.forEach((element) => {
+    console.log("#" + (early.indexOf(element) + 1) + ": " + element);
+  });
+}
+arrival(earlyBirds, lateComers);
 
 // You have two arrays above of people who arrived late to your party and
 // people who arrived early.

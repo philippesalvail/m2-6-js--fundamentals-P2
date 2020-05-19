@@ -3,8 +3,8 @@
 
 const staffMembers = [
   {
-    name: 'Jane Smith',
-    title: 'Web Developer II',
+    name: "Jane Smith",
+    title: "Web Developer II",
     skillLevels: {
       javascript: 7,
       python: 4,
@@ -12,8 +12,8 @@ const staffMembers = [
     },
   },
   {
-    name: 'Frank Castle',
-    title: 'Web Developer I',
+    name: "Frank Castle",
+    title: "Web Developer I",
     skillLevels: {
       javascript: 4,
       python: 4,
@@ -21,8 +21,8 @@ const staffMembers = [
     },
   },
   {
-    name: 'Steve Rogers',
-    title: 'Database Admin',
+    name: "Steve Rogers",
+    title: "Database Admin",
     skillLevels: {
       javascript: 7,
       python: 4,
@@ -30,8 +30,8 @@ const staffMembers = [
     },
   },
   {
-    name: 'Chuck Taylor',
-    title: 'Web Developer III',
+    name: "Chuck Taylor",
+    title: "Web Developer III",
     skillLevels: {
       javascript: 8,
       python: 7,
@@ -39,8 +39,8 @@ const staffMembers = [
     },
   },
   {
-    name: 'Thor Odinson',
-    title: 'Web Intern',
+    name: "Thor Odinson",
+    title: "Web Intern",
     skillLevels: {
       javascript: 4,
       python: 3,
@@ -48,7 +48,30 @@ const staffMembers = [
     },
   },
 ];
+let chuck = "";
+staffMembers.forEach(function (item) {
+  if (item.name === "Chuck Taylor") {
+    chuck =
+      item.name +
+      "'s javaScript ability level is " +
+      item.skillLevels.javascript;
+  }
+});
+console.log(chuck);
 
+function ability(members) {
+  let employee = "";
+  members.forEach(function (member) {
+    if (member.name === "Chuck Taylor") {
+      employee =
+        member.name +
+        "'s javaScript ability level is " +
+        member.skillLevels.javascript;
+    }
+  });
+  return employee;
+}
+console.log(ability(staffMembers));
 // We need you to write a script that will print someone's JavaScript ability level.
 // Write a line that will print the JavaScript level for employee Chuck Taylor.
 
